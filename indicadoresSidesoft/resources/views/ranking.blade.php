@@ -78,7 +78,7 @@
                                     Backlog Actual (50)
                                     <span class="info-box-number">
                                         89.29<small>%</small>
-                                    </span>                                        
+                                    </span>                                         
                                 </span> 
                         </div>
                         <!-- /.info-box-content -->
@@ -126,7 +126,9 @@
                 <div class="col">
 
                     <div class="alert alert-warning" role="alert">
-                        <h1> Ranking Personal </h1>
+                        <h2> Ranking Personal </h2>
+                        <h4>{{$backlog[0]->name}}</h4>
+                        <small>No aplica puntaje de politicas</small>
                     </div>                           
                                                                    
                 </div>    
@@ -142,14 +144,14 @@
                             <thead class="bg-green">
                                 <tr align="center" class="bg-green">
                                     <th scope="col">Consultor</th>
-                                    <th scope="col">Cumplimiento Backlog Actual</th> 
+                                    <th scope="col">Cumplimiento</th>                                                                                                                               
                                 </tr>                                                                                 
                             </thead>
                             <tbody>
                             @for ($i = 0; $i < count($rankingConsultoria); $i++)
                                 <tr align="center">
-                                    <th>{{$rankingConsultoria[$i]->name}}</th>
-                                    <td>{{$rankingConsultoria[$i]->qualification}}</td>                                                             
+                                <th scope="row"><img src="{{ asset('images/'.$rankingConsultoria[$i]->code_photo) }}" width="67" height="69"></th>
+                                <td>{{$rankingConsultoria[$i]->qualification}}</td>                                                             
                                 </tr>                                  
                             @endfor                                                             
                             </tbody>
@@ -159,6 +161,7 @@
                 </div>    
             </div>                
             {{-- Ranking Personal Funcioanles Sidesoft --}}            
+
             {{-- Ranking Personal Tecnicos Sidesoft --}}
             <div class="row" style="padding-top: 30px; padding-bottom: 30px;">
                 <div class="col" style="text-align:center;">
@@ -168,13 +171,13 @@
                         <thead class="bg-green">
                             <tr align="center" class="bg-green">
                                 <th scope="col">Tecnico</th>
-                                <th scope="col">Cumplimiento Backlog Actual</th> 
+                                <th scope="col">Cumplimiento </th>                                                                                                                               
                             </tr>                                                                                 
                         </thead>
                         <tbody>
                         @for ($i = 0; $i < count($rankingTecnico); $i++)
                             <tr align="center">
-                                <th scope="row"><img src="{{ asset('images/'.$rankingTecnico[$i]->code_photo) }}" width="67" height="69"></th>
+                            <th scope="row"><img src="{{ asset('images/'.$rankingTecnico[$i]->code_photo) }}" width="67" height="69"></th>
                                 <td>{{$rankingTecnico[$i]->qualification}}</td>                                                             
                             </tr>                                  
                         @endfor                                                             
@@ -195,13 +198,15 @@
                             <thead class="bg-green">
                                 <tr align="center" class="bg-green">
                                     <th scope="col">Soporte</th>
-                                    <th scope="col">Cumplimiento Backlog Actual</th> 
+                                    <th scope="col">Cumplimiento </th>                                                                                                                               
                                 </tr>                                                                                 
                             </thead>
                             <tbody>
+
+     
                             @for ($i = 0; $i < count($rankingSoporte); $i++)
                                 <tr align="center">
-                                    <th>{{$rankingSoporte[$i]->name}}</th>
+                                    <th scope="row"><img src="{{ asset('images/'.$rankingSoporte[$i]->code_photo) }}" width="67" height="69"></th>
                                     <td>{{$rankingSoporte[$i]->qualification}}</td>                                                             
                                 </tr>                                  
                             @endfor                                                             
@@ -209,22 +214,4 @@
     
                         </table>                      
                                                 
-                </div>    
-            </div>                
-            {{-- Ranking Personal Soporte Sidesoft --}}               
-            
-           
-        </div>        
-                
-    
-    </body>
-</html>
-
-
-
-	
-
-
-				
-			
-			
+                </div>

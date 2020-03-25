@@ -41,7 +41,3 @@ Route::get('allPolitics','PoliticsController@getPage');
 Route::get('addToCalification/{idPolitica}','PoliticsController@addToCalification');
 Route::post('addBacklogYearPolitics','PoliticsController@addBacklogYearPolitics')->name('politics.qualification');
 Route::get('getBaklogYear/{id_backlog_year}/politics/{id_backlog}/{id_user}/{id_area}','PoliticsController@getPoliticsDetails');
-
-
-// CALIFICACIONES MULTIPLES
-Route::get('multipleQualification/{id_area}','QualificationsController@getPage');

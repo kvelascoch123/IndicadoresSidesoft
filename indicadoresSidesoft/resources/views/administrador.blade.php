@@ -259,8 +259,7 @@ folder instead of downloading all of them to reduce the load. -->
         </button>
       </div>
       <div class="modal-body">
- Calificación multiple: <a href="multipleQualification/2" type="button" class="btn btn-primary"><i class="fa fa-tasks" aria-hidden="true"></i></a>
-<hr>
+      
   <form action="{{ route('backlog.search')}}" method="POST">
        {{ csrf_field() }}
 
@@ -283,10 +282,10 @@ folder instead of downloading all of them to reduce the load. -->
 
   <button type="submit" class="btn btn-primary">Calificar</button>
 </form>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
       </div>
     </div>
   </div>
@@ -306,8 +305,7 @@ folder instead of downloading all of them to reduce the load. -->
         </button>
       </div>
       <div class="modal-body">
-      Calificación multiple: <a type="button" class="btn btn-primary"><i class="fa fa-tasks" aria-hidden="true"></i></a>
-
+      
   <form action="{{ route('backlog.search')}}" method="POST">
        {{ csrf_field() }}
 
@@ -351,8 +349,7 @@ folder instead of downloading all of them to reduce the load. -->
         </button>
       </div>
       <div class="modal-body">
-      Calificación multiple: <a type="button" class="btn btn-primary"><i class="fa fa-tasks" aria-hidden="true"></i></a>
-
+      
   <form action="{{ route('backlog.search')}}" method="POST">
        {{ csrf_field() }}
 

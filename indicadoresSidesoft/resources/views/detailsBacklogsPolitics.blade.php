@@ -67,8 +67,11 @@
   </div>
 </div> 
 <h4>Observaciones:</h4>
+@if(count($politicsDetails) > 0)
+<div class="alert alert-primary" role="alert">
 <h6>{{$politicsDetails[0]->description}}</h6>
-
+</div>
+@endif
 <table  id="table_id" class="display">
     <thead  class="bg-green">
         <tr >

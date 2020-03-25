@@ -15,7 +15,7 @@ class RankingController extends Controller
         ->join('ss_area', 'ss_user.ss_area_id', '=', 'ss_area.ss_area_id')
         ->select('ss_backlog_year.*', 'ss_user.name', 'ss_backlog.name AS backlog', 'ss_year.name AS year', 'ss_area.name AS area')
         ->where('ss_year.name', date('Y'))// Unicamente detalla del 2020
-        ->where('ss_area.ss_area_id',2)// Unicamente detalla del 2020
+//        ->where('ss_area.ss_area_id',2)// Unicamente detalla del 2020
         ->get()->last();
         $arrayName = array();
         array_push($arrayName,$usersBacklogs);
@@ -45,7 +45,7 @@ class RankingController extends Controller
         ->join('ss_backlog', 'ss_backlog_year.ss_backlog_id', '=', 'ss_backlog.ss_backlog_id')
         ->join('ss_year', 'ss_backlog_year.ss_year_id', '=', 'ss_year.ss_year_id')
         ->join('ss_area', 'ss_user.ss_area_id', '=', 'ss_area.ss_area_id')
-        ->select('ss_backlog_year.*', 'ss_user.name', 'ss_backlog.name AS backlog', 'ss_year.name AS year', 'ss_area.name AS area')
+        ->select('ss_backlog_year.*', 'ss_user.name', 'ss_user.code_photo', 'ss_backlog.name AS backlog', 'ss_year.name AS year', 'ss_area.name AS area')
         ->where('ss_year.name', date('Y'))// Unicamente detalla del 2020
         ->where('ss_area.ss_area_id',1)// Unicamente detalla del 2020
         ->where('ss_backlog_year.ss_backlog_id',$backlog[0]->ss_backlog_id)// Unicamente detalla del 2020
@@ -57,7 +57,7 @@ class RankingController extends Controller
         ->join('ss_backlog', 'ss_backlog_year.ss_backlog_id', '=', 'ss_backlog.ss_backlog_id')
         ->join('ss_year', 'ss_backlog_year.ss_year_id', '=', 'ss_year.ss_year_id')
         ->join('ss_area', 'ss_user.ss_area_id', '=', 'ss_area.ss_area_id')
-        ->select('ss_backlog_year.*', 'ss_user.name', 'ss_backlog.name AS backlog', 'ss_year.name AS year', 'ss_area.name AS area')
+        ->select('ss_backlog_year.*', 'ss_user.name', 'ss_user.code_photo', 'ss_backlog.name AS backlog', 'ss_year.name AS year', 'ss_area.name AS area')
         ->where('ss_year.name', date('Y'))// Unicamente detalla del 2020
         ->where('ss_area.ss_area_id',3)// Unicamente detalla del 2020
         ->where('ss_backlog_year.ss_backlog_id',$backlog[0]->ss_backlog_id)// Unicamente detalla del 2020
@@ -65,7 +65,7 @@ class RankingController extends Controller
         ->get();
        // return $ranking; // DATA DEL PROMEDIO DEL BACKLOG ACTUAL PARA EL RANKING
        // die();
-        return view('ranking', compact('rankingTecnico', 'rankingConsultoria','rankingSoporte'));
+        return view('ranking', compact('rankingTecnico', 'rankingConsultoria','rankingSoporte', 'backlog'));
 
     }
 

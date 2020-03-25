@@ -200,11 +200,11 @@ $(document).ready( function () {
        {{ csrf_field() }}
   <div class="form-group">
     <label for="exampleInputEmail1">Nombre</label>
-    <input name='name' type="text" class="form-control" >
+    <input name='name' type="text" class="form-control" required >
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email</label>
-    <input name='email' type="email" class="form-control" >
+    <input name='email' type="email" class="form-control" required>
   </div>
   <div class="form-group">
   <label for="exampleFormControlSelect2">Selecionar Area</label>
@@ -220,7 +220,7 @@ $(document).ready( function () {
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Código Foto:</label>
-    <input name='code_photo' type="text" class="form-control" value="LM.png" >
+    <input name='code_photo' type="text" class="form-control" place-holder="NA.png" required>
   </div>
   <div class="form-group"> 
     <label for="exampleInputEmail1" hidden>Value</label>

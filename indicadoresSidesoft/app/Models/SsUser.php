@@ -43,7 +43,6 @@ class SsUser extends Model
 	protected $fillable = [
 		'name',
 		'email',
-		'code_photo',
 		'tax_id',
 		'ss_area_id',
 		'value',

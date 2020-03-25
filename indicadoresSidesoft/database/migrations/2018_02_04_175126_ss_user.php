@@ -18,8 +18,6 @@ class SsUser extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('tax_id');
-            $table->string('code_photo');
-
             $table->unsignedBigInteger('ss_area_id');
 
             $table->foreign('ss_area_id')->references('ss_area_id')->on('ss_area');

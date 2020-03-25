@@ -27,11 +27,16 @@ class PoliticsController extends Controller
         return $almacenPiliticsSelect;
     }
     public function addBacklogYearPolitics(Request $request){
+       
             // insertar en tabla baclogs_year_politics
             $arrayName = array( );
-            foreach ($request->input('ss_politics_check') as $key) {
-               array_push($arrayName, $key);
+            // DETERMINE SI SI EXISTE UNA POLITICA SELECIONADA PARA PODER CALIFICAR CASO CONTRARIO NO HAGA EL FOR
+            if($request->input('ss_politics_check') != null){
+                foreach ($request->input('ss_politics_check') as $key) {
+                    array_push($arrayName, $key);
+                 }
             }
+       
            // return $request->input('ss_politics_check');
             for ($i=0; $i < count($arrayName); $i++) {
                 $fecha = new DateTime('NOW');     

@@ -31,7 +31,7 @@
     <div class="col-sm"> 
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Descripción:</label>
-            <textarea  type="text" class="form-control" name="description"  id="description" >. </textarea >
+            <input type="text" class="form-control" name="description"  id="description" >
           </div>   
      </div>
   </div>

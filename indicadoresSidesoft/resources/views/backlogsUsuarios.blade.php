@@ -258,10 +258,11 @@ folder instead of downloading all of them to reduce the load. -->
     <select class="form-control" id="exampleFormControlSelect2" name = "ss_backlog_id">
     @foreach ($allBacklogs as $backlog)
     <option value='{{$backlog->ss_backlog_id}}'>{{$backlog->name}}</option>
+
     @endforeach 
    
     </select>
-  </div> 
+  </div>
 
   <div class="form-group">
     <label for="exampleInputEmail1" hidden>IsActive</label>
