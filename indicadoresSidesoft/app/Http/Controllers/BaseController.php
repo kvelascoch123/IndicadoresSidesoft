@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 class BaseController extends Controller
 {
-    /* RESPUESTAS 200 o 404 */
+    /* RESPUESTAS 200 o 404 **/
     public function sendResponse($result, $message)
     {
         $response = [
