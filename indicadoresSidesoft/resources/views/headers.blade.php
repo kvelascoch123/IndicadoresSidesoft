@@ -74,130 +74,98 @@ folder instead of downloading all of them to reduce the load. -->
         {{-- Navbar ADMIN--}}
         @include('layouts.menuAdmin')      
 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            <div class="alert alert-success" role="alert">
+                Formulario de Cabeceras.
+            </div> 
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="inputEmail4">Titulo</label>
+                    <input type="text" class="form-control" id="inpTitulo" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                    <label for="inputPassword4">Valor</label>
+                    <input type="text" class="form-control" id="inpValor" placeholder="55.34% ó  35 Dias" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Descripción</label>
+                    <input type="text" class="form-control" id="inpDescripcion" required> 
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2">Nota</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Agregue una nota al registro">
+                </div>
+                <div class="form-row">
 
-<div class="container-fluid">
-<div class="card text-center">
-  <div class="card-header">
-  Administrador Backlog
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Gestión de Usuarios</h5>
-    <img src="https://media-exp1.licdn.com/dms/image/C4E0BAQEuDlqvVd-aNQ/company-logo_200_200/0?e=2159024400&v=beta&t=Uig7WoSozGXkLq6EMdEBsLDEqhVTmlYC2d2_TuIgd80" alt="">
-  </div>
-  <div class="card-footer text-muted">
-    SIDESOFT
-  </div>
-</div>
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Registrar Usuario
-</button>
-
-<div class='card-body'>
-    @if(session('info'))
-    <div class="alert alert-info" role="alert">
-    {{session('info')}} 
-    </div>   
-    @endif
-</div>
-
-<table id="table_id" class="display">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Area</th>
-            <th>Descripción</th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach ($usuarios as $user)
-        <tr>
-        <td>{{$user->name}}</td>
-        <td>{{$user->email}}</td>
-        <td>{{$user->areaNombre}}</td>
-        <td>{{$user->description}}</td>
-      
-
-        </tr>  
-        @endforeach                                             
-    </tbody>
-</table>
-
-
-
+                    <div class="form-group col-md-4">
+                    <label for="inpIcono">Icono</label>
+                    <select id="inpIcono" class="form-control" required>
+                        <option selected>Elegir...</option>
+                        <option>...</option>
+                    </select>
+                    </div> 
+                    <div class="form-group col-md-4">
+                    <label for="inpIcono">Área</label>
+                    <select id="inpIcono" class="form-control" required>
+                        <option selected>Elegir...</option>
+                        @for ($i = 0; $i < count($areas); $i++)
+                        <option>{{$areas[$i]->name}}</option>
+                        @endfor
+                    </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+            </div>
+            <div class="col">
+            <table id="table_id" class="display">
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Descripción</th> 
+                        <th>Valor</th>  
+                        <th>Nota</th>
+                        <td>Estado</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Proyecto mas demandante</td>
+                        <td>Museos de la ciudad</td>
+                        <td>55.34 %</td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-success">Activar Update</button>
+                        <button type="button" class="btn btn-success">DESACTIVAR Update</button>
+                        </td>                    </tr>
+                    <tr>
+                        <td>Proyecto mas demandante</td>
+                        <td>Museos de la ciudad</td>
+                        <td>55.34 %</td>
+                        <td></td>
+                        <td>
+                        <button type="button" class="btn btn-success">Activar Update</button>
+                        <button type="button" class="btn btn-success">DESACTIVAR Update</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+ 
+</body>
 <script>
 $(document).ready( function () {
-    $('#table_id').DataTable();
+    $('#table_id').DataTable({
+        pageLength : 5,
+        lengthMenu: [[5, 10, 20, -1], [5, 10, 20, "Todos"]]
+
+    });
 } );
-     </script>
-     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body"> 
-      <form action="{{ route('usuario.register')}}" method="POST">
-       {{ csrf_field() }}
-  <div class="form-group">
-    <label for="exampleInputEmail1">Nombre</label>
-    <input name='name' type="text" class="form-control" required >
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email</label>
-    <input name='email' type="email" class="form-control" required>
-  </div>
-  <div class="form-group">
-  <label for="exampleFormControlSelect2">Selecionar Area</label>
-    <select class="form-control" id="exampleFormControlSelect2" name = "area_id">
-    @foreach ($areas as $area)
-    <option value='{{$area->ss_area_id}}'>{{$area->name}}</option>
-    @endforeach 
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Descripción</label>
-    <input name='description' type="text" class="form-control" >
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Código Foto:</label>
-    <input name='code_photo' type="text" class="form-control" place-holder="NA.png" required>
-  </div>
-  <div class="form-group"> 
-    <label for="exampleInputEmail1" hidden>Value</label>
-    <input name='value' value='1' type="text" class="form-control" hidden>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1" hidden>IsActive</label>
-    <input name="isactive" value='1' type="text" class="form-control" hidden >
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1" hidden>Tax_id</label>
-    <input name='tax_id' value='1' type="number" class="form-control" hidden>
-  </div>
-
-
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
+</script>
+</html>
